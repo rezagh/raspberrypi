@@ -1,5 +1,12 @@
-mkdir myproject
-cd myproject
+$ mkdir myproject
+$ cd myproject
+$ python3 -m venv venv
+$ . venv/bin/activate
+$ pip install flask
+$ pip install --upgrade Flask
 
-python3 -m venv venv
-. venv/bin/activate
+if you want to access remotely add --host=0.0.0.0 to the run
+
+$ flask --app hello run --host=0.0.0.0
+
+
