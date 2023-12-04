@@ -2,3 +2,4 @@ flask/venv/
 serial-RW/evnv/
 flask/venv/**
 serial-RW/evnv/**
+.DS_Store
