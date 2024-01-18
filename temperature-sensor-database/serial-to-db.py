@@ -1,4 +1,5 @@
-# install MariaDB and create user pi and the following db/table. the read serial for incoming arduino temperature data
+# install MariaDB or mysql and create user pi and the following db/table. 
+# the read serial for incoming arduino temperature data
 
 import serial
 import MySQLdb
@@ -10,6 +11,7 @@ data = arduno.readline()
 
 print (data)
 
+# here we are just connecting to the db. make sure not putting table name here.
 dbConn = MySQLdb.connect("localhost","pi","","temperature_db") or die("couldn't connect to db")
 
 print (dbConn)
