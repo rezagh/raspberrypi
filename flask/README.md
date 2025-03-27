@@ -1,9 +1,14 @@
-sudo apt update
-sudo apt upgrade
+$ mkdir myproject  
+$ cd myproject  
+$ python3 -m venv venv  
+$ . venv/bin/activate  
+$ pip install flask  
+$ pip install --upgrade Flask  
 
-pip install Flask
+if you want to access remotely add --host=0.0.0.0 to the run  
 
-python hello_world.py
+$ flask --app hello run --host=0.0.0.0  
 
-goto http://localhost:8080
+now access the host locally via localhost:5000 or remotly using the host ip address  :wq
+
 
