@@ -1,8 +1,12 @@
 Install MariaDB
 
 ```
+
 sudo apt update
+sudo apt install python3-dev default-libmysqlclient-dev build-essential pkg-config
+sudo apt install python3-pip
 sudo apt install mariadb-server
+
 
 # the following command will not work
 mysql 
