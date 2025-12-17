@@ -1,4 +1,4 @@
-Install MariaDB
+Install MariaDB on Pi
 
 ```
 
