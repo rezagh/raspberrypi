@@ -4,6 +4,9 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+# Initialize serial connection
+ser = None
+
 # Dictionary of pins with name of pin and state ON/OFF
 pins = {
     2 : {'name' : 'PIN 2', 'state' : 0 },
@@ -15,11 +18,11 @@ pins = {
 def index():
     # TODO: Read the status of the pins ON/OFF and update dictionary
     
-    #This data wii be sent to index.html (pins dictionary)
+    #This data wii be sent to led_dashboard.html (pins dictionary)
     templateData = { 'pins' : pins }
     
-    # Pass the template data into the template index.html and return it
-    return render_template('index.html', **templateData)
+    # Pass the template data into the template led_dashboard.html and return it
+    return render_template('led_dashboard.html', **templateData)
 
 # Function with buttons that toggle depending on the status
 @app.route("/<changePin>/<toggle>")
@@ -49,11 +52,11 @@ def toggle_function(changePin, toggle):
         #Set the pin low
         message = "Turned" + deviceName + "off."
     
-    #This data wii be sent to index.html (pins dictionary)
+    #This data wii be sent to led_dashboard.html (pins dictionary)
     templateData = { 'pins' : pins }
     
-    # Pass the template data into the template index.html and return it
-    return render_template('index.html', **templateData)
+    # Pass the template data into the template led_dashboard.html and return it
+    return render_template('led_dashboard.html', **templateData)
 
 #Function to send simple commands
 @app.route("/<action>")
@@ -71,11 +74,11 @@ def action(action):
         ser.write(b"4")
         pins[3]['state'] = 0
     
-    #This data wii be sent to index.html (pins dictionary)
+    #This data wii be sent to led_dashboard.html (pins dictionary)
     templateData = { 'pins' : pins }
     
-    # Pass the template data into the template index.html and return it
-    return render_template('index.html', **templateData)
+    # Pass the template data into the template led_dashboard.html and return it
+    return render_template('led_dashboard.html', **templateData)
 
 # Main function, set up serial bus, indicate port for the webserver,
 # ans start the service.
