@@ -18,6 +18,10 @@ subscribe to a topic first:
 ```
 mosquitto_sub -t topic/example
 mosquitto_sub -h localhost -t topic/example -i my_persistent_client -c -q 1
+
+-i [client-id]: Required to identify the specific session to be resumed.
+-c: Disables "clean session" (enables persistence).
+-q 1: Sets Quality of Service to 1, ensuring the message is stored if the receiver is away.
 ```
 
 in another window, publish to that topic
